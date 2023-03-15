@@ -11,3 +11,6 @@
 #SBATCH --mail-user=fhalqhta@uark.edu
 
 cd $SLURM_SUBMIT_DIR
+
+#job command here
+
