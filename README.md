@@ -81,3 +81,6 @@ this assignment, I compared an unknown sequence to a database, and
 was able to find the closest match to it.</font></p>
 </body>
 </html>
+
+3-15-23
+Made a slurm file and pushed it to Github and the Pinnacle 
