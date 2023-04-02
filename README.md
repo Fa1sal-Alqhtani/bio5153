@@ -7,3 +7,6 @@ Made a slurm file and pushed it to Github and the Pinnacle
 
 3-29-23
 We made the calc-fibonacci.py
+
+4-2-23
+added the updated slurm file as described in Assignment 5.
