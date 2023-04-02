@@ -29,9 +29,9 @@ print()
 # purge all the modules
 print('module purge')
 
-from _typeshed import ExcInfo
 import argparse
 from pickle import EXT1
+import sys
 
 # create an ArgumentParser object
 parser = argparse.ArgumentParser(description='Submit a job to Pinnacle cluster using SLURM')
@@ -46,10 +46,11 @@ parser.add_argument('--procs', type=int, default=24, help='Number of processors 
 parser.add_argument('--walltime', type=int, default=1, help='Walltime in hours')
 
 # parse the command-line arguments
-args = parser.parse_args()
+try:
+    args = parser.parse_args()
 except SystemExit as e:
-print("Error parsing command-line arguments:", EXT1)
-sys.exit(1)
+    print("Error parsing command-line arguments:", e)
+    sys.exit(1)
 
 # assign the parsed arguments to variables
 job_name = args.job_name
