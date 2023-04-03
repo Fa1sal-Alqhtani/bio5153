@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 # set some variables
-job_name = 'MlrA'
+job_name = '<JOB-NAME>'
 queue = 'comp01'
 walltime = 1
 num_nodes = 1
