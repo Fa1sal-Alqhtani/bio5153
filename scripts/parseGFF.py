@@ -1,28 +1,22 @@
-# set the file name
-infile = '~/Documents/example_files/covid_genome/covid.gff3'
+#! /usr/bin/env python3
 
-# open the file
-genome = open(infile, "r")
+# import modules
+import argparse
 
-# print(genome)
+#create an ArgumentParser object
+parser = argparse.ArgumentParser(description="This script parses a GFF file")
 
-# read the file
-dna_sequence = genome.read()
+# add positional (required) arguments
+parser.add_argument("gff", help="Name of the GFF file to parse", type=str)
+parser.add_argument("fasta", help="Name of the FASTA file to parse", type=str)
 
-# print the contents
-print(dna_sequence)
+# parse the actual arguments
+# access argument values via 'args' variable
+args = parser.parse_args()
 
-# reading a file line by line
+# open the GFF file
+with open(args.gff) as x:
 
-# open file with all the songs on Blood on the Tracks
-genome = open('blood_on_the_tracks.txt', "r")
-
-# count the lines
-lines_num = 0
-
-# loop over all the lines in the file
-for genome in genome:
-    lines_num += 1
-    track = track.rstrip()
-    print(str(genome_num) + ': ' + track)
-    # genome_num = genome_num + 1
+    # loop over all the lines in the file
+    for line in x:
+        print()
