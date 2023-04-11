@@ -15,8 +15,18 @@ parser.add_argument("fasta", help="Name of the FASTA file to parse", type=str)
 args = parser.parse_args()
 
 # open the GFF file
-with open(args.gff) as x:
+with open(args.gff) as gff_file:
 
     # loop over all the lines in the file
-    for line in x:
-        print()
+    for line in gff_file:
+
+        # remove the newline character from each line
+        line = line.rstrip()
+
+        # separate each line into individual columns
+        columns = line.split("\t")
+
+        # calculate and print the feature type and its length, separated by a tab character
+        feature_type = columns[2]
+        feature_length = int(columns[4]) - int(columns[3]) + 1
+        print(f"{feature_type}\t{feature_length}")
