@@ -3,6 +3,8 @@
 # import modules
 import argparse
 import csv
+from Bio import SeqIO
+
 
 #create an ArgumentParser object
 parser = argparse.ArgumentParser(description="This script parses a GFF file")
@@ -14,6 +16,10 @@ parser.add_argument("fasta", help="Name of the FASTA file to parse", type=str)
 # parse the actual arguments
 # access argument values via 'args' variable
 args = parser.parse_args()
+
+# read in the FASTA file 
+genome = SeqIO.read(args.fasta, "fasta")
+print(genome.desciption)
 
 # open the GFF file
 with open(args.gff) as gff_file:
