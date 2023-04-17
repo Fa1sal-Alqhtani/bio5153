@@ -30,23 +30,23 @@ with open(args.gff) as gff_file:
 
         # else it's not a blank line
         else:
-            line = line.rstrip()
-
+            #line = line.rstrip()
+            print(line)
             # separate each line into individual columns
-            columns = line.split("\t")
+            #columns = line.split("\t")
 
             # give variable names to the columns
-            organism     = columns[0]
-            source       = columns[1]
-            feature_type = columns[2]
-            start        = columns[3]
-            end          = columns[4]
-            length       = columns[5]
-            strand       = columns[6]
-            Attributes   = columns[8]
+            organism     = line[0]
+            source       = line[1]
+            feature_type = line[2]
+            start        = int(line[3])
+            end          = int(line[4])
+            length       = line[5]
+            strand       = line[6]
+            Attributes   = line[8]
 
             # add the length to column 5 
-            columns[5] = str(int(end) - int(start) + 1)
+            line[5] = str(end - start + 1)
 
-            new_line = "\t".join(columns)
+            new_line = "\t".join(line)
             print(new_line)
