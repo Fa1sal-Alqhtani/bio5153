@@ -19,7 +19,7 @@ args = parser.parse_args()
 
 # read in the FASTA file 
 genome = SeqIO.read(args.fasta, "fasta")
-print(genome.desciption)
+print(genome.description)
 
 # open the GFF file
 with open(args.gff) as gff_file:
@@ -54,5 +54,13 @@ with open(args.gff) as gff_file:
             # add the length to column 5 
             line[5] = str(end - start + 1)
 
+            # extract the feature
+            feature_seq = genome.seq[start-1:end+1]
+            # print FASTA output for this feature
+            print(">" + organism, feature_type, Attributes)
+            print(feature_type)
+            
+            print(len(feature_seq) - ((end-start)+1))
+
             new_line = "\t".join(line)
-            print(new_line)
+#            print(new_line)
